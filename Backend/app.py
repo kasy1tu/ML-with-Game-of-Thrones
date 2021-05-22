@@ -81,5 +81,8 @@ def director():
 
 # fig.show()
 
+# @app.route("/api/character")
+# def character():
+
 if __name__ == '__main__':
     app.run()
