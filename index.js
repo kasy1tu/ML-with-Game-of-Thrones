@@ -128,11 +128,12 @@ var danny = d3.select(".danny");
 var tyrion = d3.select(".tyrion");
 var cersei = d3.select(".cersei");
 
-    // Creating list variable for each character
+    // Creating list variable for each character (unorderd list for line)
 var jonList = d3.select(".jon-line");
 var dannyList = d3.select(".danny-line");
 var tyrionList = d3.select(".tyrion-line");
 var cerseiList = d3.select(".cersei-line");
+var synopsisList = d3.select(".synopsis")
 
     // Clears out existing list entries (lines)
 jonList.html("");
