@@ -133,13 +133,16 @@ var jonList = d3.select(".jon-line");
 var dannyList = d3.select(".danny-line");
 var tyrionList = d3.select(".tyrion-line");
 var cerseiList = d3.select(".cersei-line");
-var synopsisList = d3.select(".synopsis")
+var synopsisList = d3.select(".character-synopsis");
+var nightSynopsisList = d3.select(".night-synopsis");
 
     // Clears out existing list entries (lines)
 jonList.html("");
 dannyList.html("");
 tyrionList.html("");
 cerseiList.html("");
+synopsisList.html("");
+nightSynopsisList.html("");
 
 
 function getJon() {
@@ -182,12 +185,36 @@ function getTyrion() {
     })
 }
 
+function getSynopsis() {
+    d3.csv("./data/character_synopsis.csv").then(function(data) {
+        console.log(data);
+        synopsisData = data[Math.floor(Math.random() * data.length)];
+        synopsisList.html("");
+        synopsisList.append("li").text(synopsisData["character_synopsis"])
+
+    })
+}
+
+function getNightSynopsis() {
+    d3.csv("./data/night_synopsis.csv").then(function(data) {
+        console.log(data);
+        nightSynopsisData = data[Math.floor(Math.random() * data.length)];
+        nightSynopsisList.html("");
+        nightSynopsisList.append("li").text(nightSynopsisData["night_synopsis"])
+
+    })
+}
+
 d3.select(".btn.btn-default.btn-lg.jon").on("click", getJon);
 d3.select(".btn.btn-default.btn-lg.danny").on("click", getDanny);
 d3.select(".btn.btn-default.btn-lg.cersei").on("click", getCersei);
 d3.select(".btn.btn-default.btn-lg.tyrion").on("click", getTyrion);
+d3.select(".btn.btn-default.btn-lg.synopsis").on("click", getSynopsis);
+d3.select(".btn.btn-default.btn-lg.nightKing").on("click", getNightSynopsis);
 
 
-jonList.append("li").text()
+
+
+// jonList.append("li").text()
 
 
